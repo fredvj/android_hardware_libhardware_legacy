@@ -82,11 +82,11 @@ static const char SUPP_CONFIG_FILE[]    = "/data/misc/wifi/wpa_supplicant.conf";
 static const char MODULE_FILE[]         = "/proc/modules";
 static const char PRELOADER[]           = WIFI_PRE_LOADER;
 
-static const char AP_DRIVER_MODULE_NAME[]  = "tiap_drv";
-static const char AP_DRIVER_MODULE_TAG[]   = "tiap_drv" " ";
-static const char AP_DRIVER_MODULE_PATH[]  = "/system/lib/modules/tiap_drv.ko";
-static const char AP_DRIVER_MODULE_ARG[]   = "";
-static const char AP_FIRMWARE_LOADER[]     = "wlan_ap_loader";
+static const char AP_DRIVER_MODULE_NAME[]  = "libra";
+static const char AP_DRIVER_MODULE_TAG[]   = "libra" " ";
+static const char AP_DRIVER_MODULE_PATH[]  = "/system/lib/modules/libra.ko";
+static const char AP_DRIVER_MODULE_ARG[]   = "con_mode=1";
+static const char AP_FIRMWARE_LOADER[]     = "";
 static const char AP_DRIVER_PROP_NAME[]    = "wlan.ap.driver.status";
 
 #ifdef WIFI_EXT_MODULE_NAME
@@ -328,6 +328,7 @@ int hotspot_load_driver()
 #endif
 
     if (insmod(AP_DRIVER_MODULE_PATH, AP_DRIVER_MODULE_ARG) < 0){
+	LOGW("hotspot_load_driver: insmod %s %s", AP_DRIVER_MODULE_PATH, AP_DRIVER_MODULE_ARG);
 #ifdef WIFI_EXT_MODULE_NAME
         rmmod(EXT_MODULE_NAME);
 #endif
