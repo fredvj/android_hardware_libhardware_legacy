@@ -74,7 +74,7 @@ static char iface[PROPERTY_VALUE_MAX];
 #define WIFI_AP_DRIVER_MODULE_ARG       ""
 #endif
 #ifndef WIFI_AP_FIRMWARE_LOADER
-#define WIFI_AP_FIRMWARE_LOADER         "wlan_ap_loader"
+#define WIFI_AP_FIRMWARE_LOADER         ""
 #endif
 #define WIFI_TEST_INTERFACE             "sta"
 
